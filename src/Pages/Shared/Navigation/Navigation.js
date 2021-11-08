@@ -24,22 +24,19 @@ const Navigation = () => {
                         <Link to="/appointment" className="navBtn">
                             <Typography>Appointment</Typography>
                         </Link>
-                        <Link to="/dental" className="navBtn">
-                            <Typography>Dental</Typography>
-                        </Link>
-                        <Link to="/review" className="navBtn">
-                            <Typography>Review</Typography>
-                        </Link>
-                        <Link to="/blog" className="navBtn">
-                            <Typography>Blog</Typography>
-                        </Link>
-                        <Link to="/contact" className="navBtn">
-                            <Typography>Contact</Typography>
-                        </Link>
+                        {
+                            user?.email ? <Link to="/dashboard" className="navBtn">
+                                <Typography>Dashboard</Typography>
+                            </Link> :
+                            <Typography>
+                                    
+                            </Typography>
+                        }
                     </Box>
                     {
                         user?.email ?
-                            <Button variant="outlined" sx={{ marginLeft: 8, fontSize: 16, color: 'white', borderColor: 'white' }} onClick={logOut}>Log Out</Button> :
+                            <Button variant="outlined" sx={{ marginLeft: 8, fontSize: 16, color: 'white', borderColor: 'white' }} onClick={logOut}>Log Out</Button>
+                            :
                             <NavLink to="/login" style={{ textDecoration: 'none', color: 'white' }}>
                                 <Button variant="outlined" sx={{ marginLeft: 8, fontSize: 16, color: 'white', borderColor: 'white' }}>Login</Button>
                             </NavLink>        

@@ -40,7 +40,7 @@ const Register = () => {
                         <Typography variant="h5" sx={{ mb: 3 }}>Register</Typography>
                         {!isLoading && <form onSubmit={handleRegister}>
                             <TextField
-                                id="standard-basic" label="Enter Your Name"
+                                id="standard-basic-name" label="Enter Your Name"
                                 type="text"
                                 name="name"
                                 onBlur={handleOnBlur}
@@ -48,7 +48,7 @@ const Register = () => {
                                 sx={{ width: '50%', mb: 2 }}
                             /><br />
                             <TextField
-                                id="standard-basic" label="Enter Your Email"
+                                id="standard-basic-email" label="Enter Your Email"
                                 type="email"
                                 name="email"
                                 onBlur={handleOnBlur}
@@ -56,14 +56,14 @@ const Register = () => {
                                 sx={{ width: '50%', mb: 2 }}
                             /><br />
                             <TextField
-                                id="standard-basic" type="password"
+                                id="standard-basic-password" type="password"
                                 label="Enter Your Password" variant="standard"
                                 name="password"
                                 onBlur={handleOnBlur}
                                 sx={{ width: '50%', mb: 2 }}
                             /><br />
                             <TextField
-                                id="standard-basic" type="password"
+                                id="standard-basic-retype-password" type="password"
                                 label="Retype Your Password" variant="standard"
                                 name="retypePassword"
                                 onBlur={handleOnBlur}
@@ -75,7 +75,7 @@ const Register = () => {
                         </form>}
                         {isLoading && <CircularProgress />}
                         {user?.email && <Alert severity="success" sx={{mt: 3, width: '50%', mx: 'auto', fontWeight: 'bold'}}>User Created Successfully!</Alert>}
-                        {authError && <Alert severity="error">{authError}</Alert>}
+                        {authError && <Alert severity="error" sx={{ mt: 3, width: '70%', mx: 'auto', fontWeight: 'bold' }}>{authError}</Alert>}
                     </Box>
                 </Grid>
                 <Grid item xs={12} md={6}>

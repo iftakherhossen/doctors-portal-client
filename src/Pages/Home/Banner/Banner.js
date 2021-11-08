@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import CallIcon from '@mui/icons-material/Call';
+import { Link } from 'react-router-dom';
 
 const verticalAlign = {
     display: 'flex',
@@ -19,13 +20,13 @@ const homeBg = {
     background: 'url("https://i.ibb.co/MD0Xb6W/bg.png")',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    height: 800
+    height: 700
 }
 
 const Banner = () => {
     return (
         <div>
-            <Box sx={{ flexGrow: 1, mt: -12, mb: 20, px: 'auto' }}>
+            <Box sx={{ flexGrow: 1, mt: -10, mb: 20, px: 'auto' }}>
                 <Grid container spacing={2} sx={{ ...verticalAlign, py: 1, px: 'auto' }} style={homeBg}>
                     <Grid item xs={12} md={5} sx={{ textAlign: 'left', px: 'auto' }}>
                         <Box sx={{ width: 350, marginLeft: 'auto', marginRight: 'auto' }}>
@@ -36,7 +37,9 @@ const Banner = () => {
                             <Typography variant="body-1" color="color.secondary" sx={{ display: 'block' }}>
                                 There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.
                             </Typography>
-                            <Button variant="contained" sx={{ backgroundColor: '#15D1CD', mt: 4, fontWeight: 'bold' }}>Get Appointment</Button>
+                            <Link to="/appointment" style={{textDecoration: 'none'}}>
+                                <Button variant="contained" sx={{ backgroundColor: '#15D1CD', mt: 4, fontWeight: 'bold' }}>Get Appointment</Button>
+                            </Link>
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={5}>
