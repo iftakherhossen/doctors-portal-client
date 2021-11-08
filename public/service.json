@@ -1,0 +1,20 @@
+[
+    {
+            "key": 1,
+            "name": "Fluoride Treatment",
+            "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.",
+            "img": "https://i.ibb.co/vHY4QxD/fluoride.png"
+    },
+    {
+            "key": 2,
+            "name": "Cavity Filling",
+            "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.",
+            "img": "https://i.ibb.co/JtDw1z4/cavity.png"
+    },
+    {
+            "key": 3,
+            "name": "Teeth Whitening",
+            "description": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.",
+            "img": "https://i.ibb.co/ydD0SMY/whitening.png"
+    }
+]
