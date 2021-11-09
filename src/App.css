@@ -8,3 +8,9 @@
 .navBtn:hover {
     border-bottom: 3px solid white;
 }
+
+.avatar {
+    margin-bottom: 30px;
+    width: 70px;
+    border-radius: 100%;
+}

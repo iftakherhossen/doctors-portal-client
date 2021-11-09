@@ -3,17 +3,13 @@ import PropTypes from 'prop-types';
 import { List, Typography, Toolbar, IconButton, Drawer, CssBaseline, Box, AppBar, Button } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import LogoutIcon from '@mui/icons-material/Logout';
-import {
-    Switch,
-    Route,
-    Link,
-    useRouteMatch
-} from "react-router-dom";
+import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import DashboardHome from '../DashboardHome/DashboardHome';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
 import AddDoctor from '../AddDoctor/AddDoctor';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
+import Patients from '../Patients/Patients';
 
 const drawerWidth = 240;
 
@@ -21,7 +17,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
     let { path, url } = useRouteMatch();
-    const { admin, logOut } = useAuth();
+    const { user, admin, logOut } = useAuth();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -31,6 +27,9 @@ function Dashboard(props) {
         <div style={{ backgroundColor: '#13C2BC', color: 'white', height: '100%' }}>
             <Toolbar />
             <List>
+                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                    <img src={user.photoURL} alt="Avatar" className="avatar" />
+                </Box>
                 <Link to={`${url}`} style={{ textDecoration: 'none' }}>
                     <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>Dashboard</Button>
                 </Link>
@@ -44,10 +43,10 @@ function Dashboard(props) {
                     <Link to={`${url}/addDoctor`} style={{ textDecoration: 'none', my: 1 }}>
                         <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16, my: 1 }}>Add Doctor</Button>
                     </Link>
+                    <Link to={`${url}/patients`} style={{ textDecoration: 'none' }}>
+                        <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>Patients</Button>
+                    </Link>
                 </Box>}
-                <Link to="/patients" style={{ textDecoration: 'none' }}>
-                    <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>Patients</Button>
-                </Link>
                 <Link to="/dashboard" style={{ textDecoration: 'none' }}>
                     <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', my: 1, fontSize: 16 }}>Prescriptions</Button>
                 </Link>
@@ -56,7 +55,7 @@ function Dashboard(props) {
                 </Link>
             </List>
 
-            <Button sx={{ mt: 5, width: '100%', color: 'white', fontWeight: 'bold' }} onClick={logOut}><LogoutIcon sx={{ mr: 2 }} />Log Out</Button>
+            <Button sx={{ mt: 6, width: '100%', color: 'white', fontWeight: 'bold', fontSize: 15 }} onClick={logOut}><LogoutIcon sx={{ mr: 2 }} />Log Out</Button>
         </div>
     );
 
@@ -83,8 +82,8 @@ function Dashboard(props) {
                     >
                         <MenuIcon />
                     </IconButton>
-                    <Typography variant="h6" noWrap component="div">
-                        Appointments
+                    <Typography variant="h5" noWrap component="div">
+                        Appointments - {user.displayName}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -133,6 +132,9 @@ function Dashboard(props) {
                     </AdminRoute>
                     <AdminRoute path={`${path}/addDoctor`}>
                         <AddDoctor></AddDoctor>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/patients`}>
+                        <Patients></Patients>
                     </AdminRoute>
                 </Switch>
             </Box>

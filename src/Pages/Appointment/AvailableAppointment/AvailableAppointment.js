@@ -7,7 +7,7 @@ const AvailableAppointment = ({ date }) => {
     const [bookingSuccess, setBookingSuccess] = useState(false);
 
     useEffect(() => {
-        fetch('/availableAppointments.json')
+        fetch('http://localhost:5000/availableAppointments')
             .then(res => res.json())
             .then(data => setBookings(data));
     }, [])
@@ -20,7 +20,7 @@ const AvailableAppointment = ({ date }) => {
             <Grid container spacing={3} sx={{py: 3, width: '100%', ml: 0, mt: 0 }}>
                 {
                     bookings.map(booking => <Booking
-                        key={booking.id}
+                        key={booking._id}
                         booking={booking}
                         date={date}
                         setBookingSuccess={setBookingSuccess}

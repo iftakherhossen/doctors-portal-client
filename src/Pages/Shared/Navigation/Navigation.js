@@ -26,8 +26,8 @@ const Navigation = () => {
                         </Link>
                         {
                             user?.email ? <Link to="/dashboard" className="navBtn">
-                                <Typography>Dashboard</Typography>
-                            </Link> :
+                                    <Typography>Dashboard</Typography>
+                                </Link>   :
                             <Typography>
                                     
                             </Typography>
