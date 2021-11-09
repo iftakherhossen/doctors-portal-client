@@ -10,6 +10,7 @@ import AddDoctor from '../AddDoctor/AddDoctor';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import Patients from '../Patients/Patients';
+import AllAppointments from '../AllAppointments/AllAppointments';
 
 const drawerWidth = 240;
 
@@ -45,6 +46,9 @@ function Dashboard(props) {
                     </Link>
                     <Link to={`${url}/patients`} style={{ textDecoration: 'none' }}>
                         <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>Patients</Button>
+                    </Link>
+                    <Link to={`${url}/allAppointments`} style={{ textDecoration: 'none', mb: 1 }}>
+                        <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>All Appointments</Button>
                     </Link>
                 </Box>}
                 <Link to="/dashboard" style={{ textDecoration: 'none' }}>
@@ -135,6 +139,9 @@ function Dashboard(props) {
                     </AdminRoute>
                     <AdminRoute path={`${path}/patients`}>
                         <Patients></Patients>
+                    </AdminRoute>
+                    <AdminRoute path={`${path}/allAppointments`}>
+                        <AllAppointments></AllAppointments>
                     </AdminRoute>
                 </Switch>
             </Box>

@@ -23,7 +23,7 @@ const BookingModal = ({ open, handleBookingClose, booking, date, setBookingSucce
     const { name, time } = booking;
     const { user } = useAuth();
 
-    const initialInfo = { patientName: user.displayName, patientEmail: user.email, patientPhone: '' }
+    const initialInfo = { patientName: user.displayName, email: user.email, phone: '' }
 
     const [bookingInfo, setBookingInfo] = useState(initialInfo);
 
@@ -44,7 +44,7 @@ const BookingModal = ({ open, handleBookingClose, booking, date, setBookingSucce
         }
 
         // send data to the server
-        fetch('http://localhost:5000/appointments', {
+        fetch('https://warm-cove-06931.herokuapp.com/appointments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -61,7 +61,7 @@ const BookingModal = ({ open, handleBookingClose, booking, date, setBookingSucce
 
         e.preventDefault();
     }
-    
+
     return (
         <div>
             <Modal

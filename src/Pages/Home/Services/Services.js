@@ -8,7 +8,7 @@ const Services = () => {
     const [service, setService] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://warm-cove-06931.herokuapp.com/services')
             .then(res => res.json())
             .then(data => setService(data));
     }, [])
@@ -19,7 +19,7 @@ const Services = () => {
                 <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', my: 2, textAlign: 'center', color: '#15D1CD' }}>
                     OUR SERVICES
                 </Typography>
-                <Typography variant="h4" component="div" sx={{ fontWeight: 'bold', my: 2, textAlign: 'center'}}>
+                <Typography variant="h4" component="div" sx={{ fontWeight: 'bold', my: 2, textAlign: 'center' }}>
                     Services We Provide
                 </Typography>
                 <Grid container spacing={{ xs: 3, md: 4 }} columns={{ xs: 4, sm: 8, md: 12 }}>

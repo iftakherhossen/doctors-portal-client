@@ -14,7 +14,7 @@ const MakeAdmin = () => {
     const handleAdmin = e => {
         const user = { email };
 
-        fetch('http://localhost:5000/users/admin', {
+        fetch('https://warm-cove-06931.herokuapp.com/users/admin', {
             method: 'PUT',
             headers: {
                 'authorization': `Bearer ${token}`,
@@ -27,14 +27,14 @@ const MakeAdmin = () => {
                 if (data.modifiedCount) {
                     console.log(data);
                     setSuccess(true);
-               }
+                }
             });
 
         e.preventDefault(user)
     }
 
     return (
-        <div style={{textAlign: 'center'}}>
+        <div style={{ textAlign: 'center' }}>
             <h2>Make an Admin</h2>
             <form onSubmit={handleAdmin}>
                 <TextField

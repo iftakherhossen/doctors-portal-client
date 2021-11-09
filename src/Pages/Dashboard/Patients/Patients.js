@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const Patients = () => {
     const [patients, setPatients] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/users')
+        fetch('https://warm-cove-06931.herokuapp.com/users')
             .then(res => res.json())
             .then(data => setPatients(data));
-    }, [])    
+    }, [])
 
     return (
         <div>
@@ -29,14 +30,14 @@ const Patients = () => {
                             patients.map((row) => (
                                 <TableRow
                                     key={row._id}
-                                    sx={{ '&:last-child td, &:last-child th': { border: 0 }}}
+                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
-                                    <TableCell sx={{fontSize: 16}}>{row._id}</TableCell>
-                                    <TableCell component="th" scope="row" sx={{ fontSize: 16, fontWeight: 'bold'}}>
+                                    <TableCell sx={{ fontSize: 16 }}>{row._id}</TableCell>
+                                    <TableCell component="th" scope="row" sx={{ fontSize: 16, fontWeight: 'bold' }}>
                                         {row.displayName}
                                     </TableCell>
                                     <TableCell sx={{ fontSize: 16 }}><a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}>{row.email}</a></TableCell>
-                                    <TableCell sx={{ fontSize: 16 }}><a href="#" style={{ textDecoration: 'none' }}>View Appointments</a></TableCell>
+                                    <TableCell sx={{ fontSize: 16 }}><Link to="#" style={{ textDecoration: 'none' }}>View Appointments</Link></TableCell>
                                 </TableRow>
                             ))
                         }
