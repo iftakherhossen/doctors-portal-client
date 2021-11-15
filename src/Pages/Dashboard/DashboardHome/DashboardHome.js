@@ -7,7 +7,7 @@ const DashboardHome = () => {
     const [date, setDate] = React.useState(new Date());
 
     return (
-        <Grid container>
+        <Grid container spacing={0}>
             <Grid item xs={12} md={4}>
                 <Calender
                     sx={{ pt: 10 }}

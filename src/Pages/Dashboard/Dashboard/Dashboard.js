@@ -11,6 +11,7 @@ import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import Patients from '../Patients/Patients';
 import AllAppointments from '../AllAppointments/AllAppointments';
+import Payment from '../Payment/Payment';
 
 const drawerWidth = 240;
 
@@ -26,40 +27,39 @@ function Dashboard(props) {
 
     const drawer = (
         <div style={{ backgroundColor: '#13C2BC', color: 'white', height: '100%' }}>
-            <Toolbar />
             <List>
-                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center', mt: 4, mb: 3 }}>
                     <img src={user.photoURL} alt="Avatar" className="avatar" />
                 </Box>
                 <Link to={`${url}`} style={{ textDecoration: 'none' }}>
-                    <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>Dashboard</Button>
+                    <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', mb: 1, fontSize: 16 }}>Dashboard</Button>
                 </Link>
                 <Link to="/appointment" style={{ textDecoration: 'none' }}>
-                    <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', my: 1, fontSize: 16 }}>Appointments</Button>
+                    <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', mb: 1, fontSize: 16 }}>Appointments</Button>
                 </Link>
                 {admin && <Box>
                     <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}>
-                        <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>Make Admin</Button>
+                        <Button sx={{ width: '100%', mb: 1, color: 'white', fontWeight: 'bold', fontSize: 16 }}>Make Admin</Button>
                     </Link>
-                    <Link to={`${url}/addDoctor`} style={{ textDecoration: 'none', my: 1 }}>
-                        <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16, my: 1 }}>Add Doctor</Button>
+                    <Link to={`${url}/addDoctor`} style={{ textDecoration: 'none', mb: 1 }}>
+                        <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>Add Doctor</Button>
                     </Link>
                     <Link to={`${url}/patients`} style={{ textDecoration: 'none' }}>
-                        <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>Patients</Button>
+                        <Button sx={{ width: '100%', color: 'white', mb: 1, fontWeight: 'bold', fontSize: 16 }}>Patients</Button>
                     </Link>
                     <Link to={`${url}/allAppointments`} style={{ textDecoration: 'none', mb: 1 }}>
                         <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>All Appointments</Button>
                     </Link>
                 </Box>}
                 <Link to="/dashboard" style={{ textDecoration: 'none' }}>
-                    <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', my: 1, fontSize: 16 }}>Prescriptions</Button>
+                    <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', mb: 1, fontSize: 16 }}>Prescriptions</Button>
                 </Link>
                 <Link to="/dashboard" style={{ textDecoration: 'none' }}>
-                    <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>Settings</Button>
+                    <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', mb: 1, fontSize: 16 }}>Settings</Button>
                 </Link>
             </List>
 
-            <Button sx={{ mt: 6, width: '100%', color: 'white', fontWeight: 'bold', fontSize: 15 }} onClick={logOut}><LogoutIcon sx={{ mr: 2 }} />Log Out</Button>
+            <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 15, mt: 5 }} onClick={logOut}><LogoutIcon sx={{ mr: 2 }} />Log Out</Button>
         </div>
     );
 
@@ -87,7 +87,7 @@ function Dashboard(props) {
                         <MenuIcon />
                     </IconButton>
                     <Typography variant="h5" noWrap component="div">
-                        Appointments - {user.displayName}
+                        Dashboard - {user.displayName}
                     </Typography>
                 </Toolbar>
             </AppBar>
@@ -130,6 +130,9 @@ function Dashboard(props) {
                 <Switch>
                     <Route exact path={path}>
                         <DashboardHome></DashboardHome>
+                    </Route>
+                    <Route path={`${path}/payment/:appointmentId`}>
+                        <Payment></Payment>
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>
                         <MakeAdmin></MakeAdmin>

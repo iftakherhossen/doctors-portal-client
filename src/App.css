@@ -10,7 +10,20 @@
 }
 
 .avatar {
-    margin-bottom: 30px;
     width: 70px;
     border-radius: 100%;
+}
+
+.select {
+    border: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 10;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.select option {
+    font-size: 15px;
+    
 }

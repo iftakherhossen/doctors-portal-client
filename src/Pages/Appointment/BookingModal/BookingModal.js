@@ -20,7 +20,7 @@ const style = {
 };
 
 const BookingModal = ({ open, handleBookingClose, booking, date, setBookingSuccess }) => {
-    const { name, time } = booking;
+    const { name, time, fees } = booking;
     const { user } = useAuth();
 
     const initialInfo = { patientName: user.displayName, email: user.email, phone: '' }
@@ -40,6 +40,9 @@ const BookingModal = ({ open, handleBookingClose, booking, date, setBookingSucce
             ...bookingInfo,
             serviceName: name,
             time,
+            fees,
+            status: 'Pending',
+            payment: 'Pending',
             date: date.toLocaleDateString()
         }
 
@@ -99,20 +102,32 @@ const BookingModal = ({ open, handleBookingClose, booking, date, setBookingSucce
                             id="standard-size-normal"
                             defaultValue={user.email}
                             variant="standard"
-                            name="patientEmail"
+                            name="email"
                             onBlur={handleOnBlur}
                             sx={{ my: 2, width: '100%' }}
                         />
-                        <TextField
-                            id="standard-size-normal"
-                            defaultValue="+88"
-                            variant="standard"
-                            name="patientPhone"
-                            title="Phone Number"
-                            onBlur={handleOnBlur}
-                            sx={{ my: 2, width: '100%' }}
-
-                        />
+                        <Box sx={{ display: 'flex', justifyContent: 'between' }}>
+                            <TextField
+                                id="standard-size-normal"
+                                defaultValue="+88"
+                                variant="standard"
+                                name="phone"
+                                title="Phone Number"
+                                onBlur={handleOnBlur}
+                                sx={{ my: 2, width: '70%' }}
+                                required
+                            />
+                            <TextField
+                                id="standard-size-normal"
+                                defaultValue={fees}
+                                variant="standard"
+                                name="fees"
+                                title="Fees"
+                                onBlur={handleOnBlur}
+                                sx={{ my: 2, width: '25%', pl: 2 }}
+                                disabled
+                            />
+                        </Box>
                         <TextField
                             disabled
                             id="standard-size-normal"

@@ -8,14 +8,13 @@ const AllAppointments = () => {
     const [allAppointment, setAllAppointment] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/appointments')
+        fetch('https://warm-cove-06931.herokuapp.com/appointments')
             .then(res => res.json())
             .then(data => setAllAppointment(data));
     }, [])
 
     const handleDelete = id => {
-        console.log('deleted', id);
-        const url = `http://localhost:5000/appointments/${id}`
+        const url = `https://warm-cove-06931.herokuapp.com/appointments/${id}`
         fetch(url, {
             method: 'DELETE'
         })
@@ -36,18 +35,19 @@ const AllAppointments = () => {
 
     return (
         <div>
-            <Typography variant="h5">All Appointments - {allAppointment.length}</Typography>
+            <Typography variant="h5" sx={{textAlign: 'center'}}>All Appointments - {allAppointment.length}</Typography>
 
             <TableContainer component={Paper} sx={{ width: '100%', my: 2, }}>
                 <Table sx={{ width: '100%', textAlign: 'center' }} aria-label="simple table">
                     <TableHead sx={{ textAlign: 'center' }}>
                         <TableRow>
                             <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }}>Name</TableCell>
-                            <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">Email</TableCell>
-                            <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">Phone</TableCell>
+                            <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">Contact</TableCell>
                             <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">Service</TableCell>
                             <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">Time</TableCell>
                             <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">Date</TableCell>
+                            <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">Payment</TableCell>
+                            <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">Status</TableCell>
                             <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="right"></TableCell>
                         </TableRow>
                     </TableHead>
@@ -61,11 +61,12 @@ const AllAppointments = () => {
                                     <TableCell component="th" scope="row" sx={{ fontSize: 17, fontWeight: 'bold' }}>
                                         {row.patientName}
                                     </TableCell>
-                                    <TableCell sx={{ fontSize: 12 }} align="center"><a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}><AlternateEmailIcon title="Send Email" /></a></TableCell>
-                                    <TableCell sx={{ fontSize: 12 }} align="center"><a href={`tel:${row.phone}`} style={{ textDecoration: 'none' }}><CallIcon title="Call Now" /></a></TableCell>
+                                    <TableCell sx={{ fontSize: 12 }} align="center"><a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}><AlternateEmailIcon title="Send Email" /></a> &nbsp; <a href={`tel:${row.phone}`} style={{ textDecoration: 'none' }}><CallIcon title="Call Now" /></a></TableCell>
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">{row.serviceName}</TableCell>
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold'  }} align="center">{row.time}</TableCell>
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold'  }} align="center">{row.date}</TableCell>
+                                    <TableCell sx={{ fontSize: 17, fontWeight: 'bold'  }} align="center">{row.payment ? 'Paid' : 'Pending'}</TableCell>
+                                    <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">{row.status ? 'Done' : 'Pending'}</TableCell>
                                     <TableCell sx={{ fontSize: 17, color: 'red' }} align="right"><DeleteIcon title="Cancel Appointment" sx={{ cursor: 'pointer' }} onClick={() => handleDelete(row._id)} /></TableCell>
                                 </TableRow>
                             ))
