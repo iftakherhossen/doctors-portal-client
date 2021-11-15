@@ -1,10 +1,10 @@
 ## Doctor's Portal
 
-* Firebase Login System
-* Connected with MongoDb Database 
-* Complete Full stack website
-* Using Material UI
-* Using JWT Token for secure Admin 
+* Firebase Login/Register System
+* MongoDb Database 
+* Stripe Payment System
+* Material UI
+* JWT Token for secure Admin 
 * AdminRoute & PrivateRoute
 
 #### Under Construction!
