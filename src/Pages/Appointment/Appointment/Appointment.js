@@ -8,9 +8,9 @@ const Appointment = () => {
 
     return (
         <div>
-            <Navigation></Navigation>
-            <AppointmentHeader date={date} setDate={setDate}></AppointmentHeader>
-            <AvailableAppointment date={date}></AvailableAppointment>
+            <Navigation/>
+            <AppointmentHeader date={date} setDate={setDate}/>
+            <AvailableAppointment date={date}/>
         </div>
     );
 };

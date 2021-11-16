@@ -6,12 +6,13 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import { Switch, Route, Link, useRouteMatch } from "react-router-dom";
 import DashboardHome from '../DashboardHome/DashboardHome';
 import MakeAdmin from '../MakeAdmin/MakeAdmin';
-import AddDoctor from '../AddDoctor/AddDoctor';
 import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import Patients from '../Patients/Patients';
 import AllAppointments from '../AllAppointments/AllAppointments';
 import Payment from '../Payment/Payment';
+import PostReviews from '../PostReviews/PostReviews';
+import AppointmentList from '../AppointmentList/AppointmentList';
 
 const drawerWidth = 240;
 
@@ -37,18 +38,19 @@ function Dashboard(props) {
                 <Link to="/appointment" style={{ textDecoration: 'none' }}>
                     <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', mb: 1, fontSize: 16 }}>Appointments</Button>
                 </Link>
+                <Link to={`${url}/reviewUs`} style={{ textDecoration: 'none' }}>
+                    <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16, mb: 1  }}>Review Us</Button>
+                </Link>
                 {admin && <Box>
                     <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}>
                         <Button sx={{ width: '100%', mb: 1, color: 'white', fontWeight: 'bold', fontSize: 16 }}>Make Admin</Button>
                     </Link>
-                    <Link to={`${url}/addDoctor`} style={{ textDecoration: 'none', mb: 1 }}>
-                        <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>Add Doctor</Button>
-                    </Link>
+                    
                     <Link to={`${url}/patients`} style={{ textDecoration: 'none' }}>
                         <Button sx={{ width: '100%', color: 'white', mb: 1, fontWeight: 'bold', fontSize: 16 }}>Patients</Button>
                     </Link>
-                    <Link to={`${url}/allAppointments`} style={{ textDecoration: 'none', mb: 1 }}>
-                        <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16 }}>All Appointments</Button>
+                    <Link to={`${url}/allAppointments`} style={{ textDecoration: 'none'}}>
+                        <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16, mb: 1  }}>All Appointments</Button>
                     </Link>
                 </Box>}
                 <Link to="/dashboard" style={{ textDecoration: 'none' }}>
@@ -129,22 +131,25 @@ function Dashboard(props) {
                 <Toolbar />
                 <Switch>
                     <Route exact path={path}>
-                        <DashboardHome></DashboardHome>
+                        <DashboardHome/>
                     </Route>
                     <Route path={`${path}/payment/:appointmentId`}>
-                        <Payment></Payment>
+                        <Payment />
+                    </Route>
+                    <Route path={`${path}/reviewUs`}>
+                        <PostReviews />
                     </Route>
                     <AdminRoute path={`${path}/makeAdmin`}>
-                        <MakeAdmin></MakeAdmin>
-                    </AdminRoute>
-                    <AdminRoute path={`${path}/addDoctor`}>
-                        <AddDoctor></AddDoctor>
+                        <MakeAdmin/>
                     </AdminRoute>
                     <AdminRoute path={`${path}/patients`}>
-                        <Patients></Patients>
+                        <Patients/>
+                    </AdminRoute>
+                    <AdminRoute path="/dashboard/patient/appointments/:email">
+                        <AppointmentList />
                     </AdminRoute>
                     <AdminRoute path={`${path}/allAppointments`}>
-                        <AllAppointments></AllAppointments>
+                        <AllAppointments/>
                     </AdminRoute>
                 </Switch>
             </Box>

@@ -19,23 +19,23 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
-              <Home></Home>
+              <Home />
             </Route>
             <Route path="/home">
-              <Home></Home>
+              <Home />
             </Route>
             <PrivateRoute path="/appointment">
-              <Appointment></Appointment>
+              <Appointment />
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
             </PrivateRoute>
             <Route path="/login">
-              <Login></Login>
+              <Login />
             </Route>
             <Route path="/register">
-              <Register></Register>
+              <Register />
             </Route>
-            <PrivateRoute path="/dashboard">
-              <Dashboard></Dashboard>
-            </PrivateRoute>
           </Switch>
         </Router>
       </AuthProvider>

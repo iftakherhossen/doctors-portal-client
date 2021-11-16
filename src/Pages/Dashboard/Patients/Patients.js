@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 const Patients = () => {
@@ -11,6 +11,10 @@ const Patients = () => {
             .then(data => setPatients(data));
     }, [])
 
+    const handleView = email => {
+        console.log(email)
+    }
+
     return (
         <div>
             <Typography variant="h5">Patients - {patients.length}</Typography>
@@ -20,9 +24,9 @@ const Patients = () => {
                     <TableHead>
                         <TableRow>
                             <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }}>Patient ID</TableCell>
-                            <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }}>Name</TableCell>
-                            <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }}>Email</TableCell>
-                            <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }}>Appointment List</TableCell>
+                            <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">Name</TableCell>
+                            <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">Email</TableCell>
+                            <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">Appointment List</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -33,11 +37,15 @@ const Patients = () => {
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell sx={{ fontSize: 16 }}>{row._id}</TableCell>
-                                    <TableCell component="th" scope="row" sx={{ fontSize: 16, fontWeight: 'bold' }}>
+                                    <TableCell align="center" component="th" scope="row" sx={{ fontSize: 16, fontWeight: 'bold' }}>
                                         {row.displayName}
                                     </TableCell>
-                                    <TableCell sx={{ fontSize: 16 }}><a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}>{row.email}</a></TableCell>
-                                    <TableCell sx={{ fontSize: 16 }}><Link to="#" style={{ textDecoration: 'none' }}>View Appointments</Link></TableCell>
+                                    <TableCell  align="center" sx={{ fontSize: 16 }}><a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}>{row.email}</a></TableCell>
+                                    <TableCell sx={{ fontSize: 16 }} align="center">
+                                        <Link to="/dashboard/patient/appointments" style={{ textDecoration: 'none' }}>
+                                            <Button variant="inherit" onClick={()=> handleView(row.email)}>View Appointments</Button>
+                                        </Link>
+                                    </TableCell>
                                 </TableRow>
                             ))
                         }

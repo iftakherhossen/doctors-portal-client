@@ -13,12 +13,12 @@ const DashboardHome = () => {
                     sx={{ pt: 10 }}
                     date={date}
                     setDate={setDate}
-                ></Calender>
+                />
             </Grid>
             <Grid item xs={12} md={8}>
                 <Appointments
                     date={date}
-                ></Appointments>
+                />
             </Grid>
         </Grid>
     );
