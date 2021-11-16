@@ -41,8 +41,6 @@ const BookingModal = ({ open, handleBookingClose, booking, date, setBookingSucce
             serviceName: name,
             time,
             fees,
-            status: 'Pending',
-            payment: 'Pending',
             date: date.toLocaleDateString()
         }
 

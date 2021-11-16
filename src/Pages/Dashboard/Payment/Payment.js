@@ -24,7 +24,7 @@ const Payment = () => {
                 <Typography variant="h5" sx={{ textAlign: 'center', mb: 2 }}>Pay the fees to fix your appointment!</Typography>
                 <Grid container sx={{ py: 4, textAlign: 'center' }}>
                     <Grid item xs={12} sm={12} md={6} sx={{ textAlign: 'left', p: 2 }}>
-                        <Typography variant="h5" sx={{ml: .5,  mb: 1.5 }}>Patient Details</Typography>
+                        <Typography variant="h5" sx={{ ml: .5, mb: 1.5 }}>Patient Details</Typography>
                         <table style={{ width: 500, fontSize: 17.5 }}>
                             <tbody>
                                 <tr style={{ height: 30 }}>
@@ -50,20 +50,20 @@ const Payment = () => {
                             </tbody>
                         </table>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} sx={{ textAlign: 'center', p: 2 }}>
+                    <Grid item xs={12} sm={12} md={6} sx={{ textAlign: 'center', px: 2, py: 5 }}>
                         {/* Payment System */}
-                        <Elements stripe={stripePromise}>
+                        {details?.fees && <Elements stripe={stripePromise}>
                             <CheckoutForm
                                 details={details}
                             />
-                        </Elements>
-                        
+                        </Elements>}
+
                         {/* Coupon Code */}
-                        <Box sx={{display :'flex', justifyContent: 'space-between', mt:8}}>
+                        <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 8 }}>
                             <TextField
                                 variant="standard"
                                 placeholder="Apply Code for Discount!"
-                                sx={{width: '100%'}}
+                                sx={{ width: '100%' }}
                             >
                             </TextField>
                             <Button sx={{ fontWeight: 'bold' }}>Apply</Button>
