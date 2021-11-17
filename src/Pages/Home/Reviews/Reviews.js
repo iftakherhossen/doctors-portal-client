@@ -16,12 +16,12 @@ const Reviews = () => {
         <div id="reviews">
             <Box>
                 <Box>
-                    <Typography variant="h4" sx={{ textAlign: 'center', mb: 3 }}>What People Say About Us!</Typography>
+                    <Typography variant="h4" sx={{ textAlign: 'center', mb: 3, fontWeight: 'bold' }}>What People Say About Us!</Typography>
                 </Box>
                 <Box>
                     <Grid container sx={{display: 'flex', justifyContent: 'center'}}>
                         {reviews.map((review, _id) => (
-                            <Grid item xs={12} sm={10} md={3} key={_id} sx={{m: 3, bgcolor: '#a6b3bf', borderRadius: '50px' }}>
+                            <Grid item xs={12} sm={10} md={3} key={_id} sx={{ m: 3, bgcolor: '#eee', borderRadius: '50px', boxShadow: 2 }}>
                                 <Review
                                     key={review.key}
                                     reviews={review}

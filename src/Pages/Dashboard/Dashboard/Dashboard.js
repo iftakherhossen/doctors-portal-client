@@ -48,14 +48,14 @@ function Dashboard(props) {
                     <Link to={`${url}/makeAdmin`} style={{ textDecoration: 'none' }}>
                         <Button sx={{ width: '100%', mb: 1, color: 'white', fontWeight: 'bold', fontSize: 16 }}>Make Admin</Button>
                     </Link>
+                    <Link to={`${url}/addDoctor`} style={{ textDecoration: 'none' }}>
+                        <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', mb: 1, fontSize: 16 }}>Add Doctor</Button>
+                    </Link>
                     <Link to={`${url}/patients`} style={{ textDecoration: 'none' }}>
                         <Button sx={{ width: '100%', color: 'white', mb: 1, fontWeight: 'bold', fontSize: 16 }}>Patients</Button>
                     </Link>
                     <Link to={`${url}/allAppointments`} style={{ textDecoration: 'none' }}>
                         <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', fontSize: 16, mb: 1 }}>All Appointments</Button>
-                    </Link>
-                    <Link to={`${url}/addDoctor`} style={{ textDecoration: 'none' }}>
-                        <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', mb: 1, fontSize: 16 }}>Add Doctor</Button>
                     </Link>
                     <Link to="/dashboard" style={{ textDecoration: 'none' }}>
                         <Button sx={{ width: '100%', color: 'white', fontWeight: 'bold', mb: 1, fontSize: 16 }}>Settings</Button>

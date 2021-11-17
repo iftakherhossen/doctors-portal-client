@@ -10,24 +10,37 @@ const Review = ({ reviews }) => {
         <Box sx={{ width: '100%' }}>
             <Container>
                 <Box sx={{ width: '100%', textAlign: 'center', m: 'auto' }}>
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', fontStyle: 'italic', mt: 3, mb: 1 }}>❝ {review} ❞</Typography>
-                    {star === '5' && <Box>
-                        <FavoriteIcon /> <FavoriteIcon /> <FavoriteIcon /> <FavoriteIcon /> <FavoriteIcon />
-                    </Box>}
-                    {star === '4' && <Box>
-                        <FavoriteIcon /> <FavoriteIcon /> <FavoriteIcon /> <FavoriteIcon />
-                    </Box>}
-                    {star === '3' && <Box>
-                        <FavoriteIcon /> <FavoriteIcon /> <FavoriteIcon />
-                    </Box>}
+                    <Box sx={{ mt: 2 }}>
+                        {star >= '5' && <Box>
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                        </Box>}
+                        {star === '4' && <Box>
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                        </Box>}
+                        {star === '3' && <Box>
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                        </Box>}
 
-                    {star === '2' && <Box>
-                        <FavoriteIcon /> <FavoriteIcon />
-                    </Box>}
-                    {star === '1' && <Box>
-                        <FavoriteIcon />
-                    </Box>}
-                    <Typography variant="body1" sx={{ mt: 1, mb: 3 }}>{name}</Typography>
+                        {star === '2' && <Box>
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                        </Box>}
+                        {star <= '1' && <Box>
+                            <FavoriteIcon sx={{ fontSize: 18 }} />
+                        </Box>}
+                    </Box>
+                    <Typography variant="h6" sx={{ fontWeight: 'bold', fontStyle: 'italic', mt: 1, height: 95 }}>❝ &nbsp;{review} ❞</Typography>
+                    <span>●</span>
+                    <Typography variant="body1" sx={{ mt: 0.5, mb: 2, fontWeight: 'bold', color: '#323232' }}>{name}</Typography>
                 </Box>
             </Container>
         </Box >

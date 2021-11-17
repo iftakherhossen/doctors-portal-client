@@ -43,8 +43,6 @@ const MakeAdmin = () => {
             .then(data => setAdmin(data));
     }, [])
 
-    console.log(admin)
-
     return (
         <Box style={{ textAlign: 'center' }}>
             <Container>
