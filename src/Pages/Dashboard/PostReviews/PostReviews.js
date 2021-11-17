@@ -72,7 +72,7 @@ const PostReviews = () => {
                                     {errors.review && <span style={{ color: 'red' }}>Write Something!</span>}<br />
                                     <FormControl sx={{ width: 1 }} variant="standard">
                                         <Input
-                                            {...register("ratings", { required: true })}
+                                            {...register("star", { required: true })}
                                             variant="standard"
                                             sx={{ width: '100%', mb: 2, fontSize: 16 }}
                                             InputProps={{ inputProps: { min: 0, max: 5 } }}
@@ -91,7 +91,7 @@ const PostReviews = () => {
                             </Box>
                             <Box>
                                 {isLoading && <CircularProgress />}
-                                {reviewSuccess && <Alert severity="success" sx={{ mt: 3, width: '100%', mx: 'auto', fontWeight: 'bold' }}>Thanks For the Review! <HashLink to="/home#reviews">See YourReview</HashLink></Alert>}
+                                {reviewSuccess && <Alert severity="success" sx={{ mt: 3, width: '100%', mx: 'auto', fontWeight: 'bold' }}>Thanks For the Review! <br/> <HashLink to="/home#reviews">See Your Review</HashLink></Alert>}
                             </Box>
                         </Grid>
                     </Grid>

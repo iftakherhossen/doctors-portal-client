@@ -28,7 +28,7 @@ const Services = () => {
                             <Service
                                 key={service.key}
                                 service={service}
-                            ></Service>
+                            />
                         </Grid>
                     ))}
                 </Grid>

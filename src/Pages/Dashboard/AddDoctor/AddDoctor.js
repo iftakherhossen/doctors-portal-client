@@ -9,6 +9,7 @@ const AddDoctor = () => {
     const [email, setEmail] = useState('');
     const [image, setImage] = useState(null);
     const [error, setError] = useState('');
+    const [success, setSuccess] = useState(false);
 
     const handleAddDoctor = e => {
         e.preventDefault();
@@ -28,7 +29,9 @@ const AddDoctor = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Success', data)
+                if (data.insertedId) {
+                    console.log('Doctor Added')
+                }
             })
             .catch(error => {
                 setError("Image can't upload right now!")
@@ -68,7 +71,7 @@ return (
                         <Button variant="contained" sx={{ mt: 5 }} type="submit">Add Doctor</Button>
                     </form>}
                     {isLoading && <CircularProgress />}
-                    {user?.email && <Alert severity="success" sx={{ mt: 3, width: '100%', mx: 'auto', fontWeight: 'bold' }}>Doctor Added Successfully!</Alert>}
+                    {success && <Alert severity="success" sx={{ mt: 3, width: '100%', mx: 'auto', fontWeight: 'bold' }}>Doctor Added Successfully!</Alert>}
                     {authError && <Alert severity="error" sx={{ mt: 3, width: '100%', mx: 'auto', fontWeight: 'bold' }}></Alert>}
                 </Box>
             </Grid>

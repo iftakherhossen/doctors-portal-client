@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import CallIcon from '@mui/icons-material/Call';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
@@ -67,7 +67,11 @@ const AllAppointments = () => {
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold'  }} align="center">{row.date}</TableCell>
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold'  }} align="center">{row.payment ? 'Paid' : 'Pending'}</TableCell>
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">{row.status ? 'Done' : 'Pending'}</TableCell>
-                                    <TableCell sx={{ fontSize: 17, color: 'red' }} align="right"><DeleteIcon title="Cancel Appointment" sx={{ cursor: 'pointer' }} onClick={() => handleDelete(row._id)} /></TableCell>
+                                    <TableCell sx={{ fontSize: 17, color: 'red' }} align="right">
+                                        <IconButton aria-label="delete" size="large">
+                                            <DeleteIcon fontSize="inherit" onClick={() => handleDelete(row._id)} sx={{color:'red'}} />
+                                        </IconButton>
+                                    </TableCell>
                                 </TableRow>
                             ))
                         }
