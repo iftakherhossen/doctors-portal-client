@@ -1,5 +1,5 @@
 import { Alert, Button, CircularProgress, Container, Grid, Input, TextField, Typography, ListItemAvatar, Avatar, ListItemText, List, ListItem, IconButton } from '@mui/material';
-import { Box, styled } from '@mui/system';
+import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
@@ -47,11 +47,33 @@ const AddDoctor = () => {
             .then(data => setDoctors(data));
     }, [])
 
+    const handleDelete = id => {
+        const url = `https://warm-cove-06931.herokuapp.com/doctors/${id}`
+        fetch(url, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                const confirm = window.confirm('Are you sure? You wanna delete Doctor entry from the list.')
+
+                if (confirm === true) {
+                    if (data.deletedCount) {
+                        alert('Deleted Successfully!')
+                        const remaining = doctors.filter(doctor => doctor._id !== id);
+                        setDoctors(remaining)
+                    }
+                }
+                else {
+                    window.location.reload();
+                }
+            })
+    }
+
     return (
         <Box>
             <Container>
                 <Grid container sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Grid item xs={10} sm={8} md={4} sx={{ mx: 'auto' }}>
+                    <Grid item xs={12} sm={10} md={4} sx={{ mx: 'auto' }}>
                         <Box sx={{ padding: '30px 0', textAlign: 'center' }}>
                             <Typography variant="h5" sx={{ mb: 3, fontWeight: 'bold' }}>Add Doctor</Typography>
 
@@ -87,21 +109,19 @@ const AddDoctor = () => {
                             {error && <Alert severity="error" sx={{ mt: 3, width: '100%', mx: 'auto', fontWeight: 'bold' }}></Alert>}
                         </Box>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={6} sx={{px:3}}>
+                    <Grid item xs={12} sm={12} md={6} sx={{ px: 3 }}>
                         <Typography sx={{ mt: 4, mb: 2, textAlign: 'center', fontWeight: 'bold' }} variant="h5" component="div">
                             Our Doctors
                         </Typography>
                         <List>
                             {doctors.map(doctor => (
-                                <ListItem>
-                                    <ListItemAvatar>
-                                        <Avatar>
-                                            <img src={`data:image/pmg;base64,${doctor.image}`} alt="Avatar" sx={{width: '30px'}} />
-                                        </Avatar>
-                                    </ListItemAvatar>
-                                    <ListItemText primary={doctor.name} sx={{ fontWeight: 'bold'}} />
+                                <ListItem disablePadding>
+                                    <span style={{ marginRight: 10}}>•</span>
+                                    <ListItemText primary={doctor.name} />
                                     <IconButton edge="end" aria-label="delete">
-                                        <DeleteIcon sx={{color: 'red'}} />
+                                        <DeleteIcon
+                                            onClick={() => handleDelete(doctor._id)}
+                                            sx={{ color: 'red' }} />
                                     </IconButton>
                                 </ListItem>
                             ))}

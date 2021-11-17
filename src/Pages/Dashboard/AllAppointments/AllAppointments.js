@@ -69,7 +69,10 @@ const AllAppointments = () => {
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">{row.status ? 'Done' : 'Pending'}</TableCell>
                                     <TableCell sx={{ fontSize: 17, color: 'red' }} align="right">
                                         <IconButton aria-label="delete" size="large">
-                                            <DeleteIcon fontSize="inherit" onClick={() => handleDelete(row._id)} sx={{color:'red'}} />
+                                            <DeleteIcon
+                                                fontSize="inherit"
+                                                onClick={() => handleDelete(row._id)}
+                                                sx={{ color: 'red' }} />
                                         </IconButton>
                                     </TableCell>
                                 </TableRow>
