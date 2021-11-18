@@ -34,7 +34,12 @@ const Navigation = () => {
                     </Box>
                     <Box sx={{ ml: 4, mr: 2 }}>
                         {
-                            user?.photoURL ? <img src={user?.photoURL} alt={user.displayName} title={user?.displayName} className="nav-avatar" /> : <AccountCircleIcon sx={{ fontSize: 40 }} title={user?.displayName} />
+                            user?.photoURL ?
+                                <Link to="/profile">
+                                    <img src={user?.photoURL} alt={user.displayName} title={user?.displayName} className="nav-avatar" />
+                                </Link> : <Link to="/profile" style={{color: 'black'}}>
+                                    <AccountCircleIcon sx={{ fontSize: 40 }} title={user?.displayName} />
+                                </Link>
                         }
                     </Box>
                     {

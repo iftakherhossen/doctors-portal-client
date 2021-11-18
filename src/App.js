@@ -11,6 +11,7 @@ import Login from './Pages/Login/Login/Login';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './Pages/Login/Register/Register';
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import Profile from './Pages/Profile/Profile/Profile';
 
 function App() {
   return (
@@ -30,8 +31,8 @@ function App() {
             <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>
-            <PrivateRoute path="/dashboard">
-              <Dashboard />
+            <PrivateRoute path="/profile">
+              <Profile />
             </PrivateRoute>
             <Route path="/login">
               <Login />

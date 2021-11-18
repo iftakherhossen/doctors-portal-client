@@ -38,7 +38,7 @@ const Review = ({ reviews }) => {
                             <FavoriteIcon sx={{ fontSize: 18 }} />
                         </Box>}
                     </Box>
-                    <Typography sx={{ fontSize: 18, fontWeight: 'bold', fontStyle: 'italic', mt: 1, height: 60, py: 'auto' }}>❝ &nbsp;{review} ❞</Typography>
+                    <Typography sx={{ fontSize: 17, fontWeight: 'bold', fontStyle: 'italic', mt: 1, height: 60, py: 'auto' }}>❝ &nbsp;{review} ❞</Typography>
                     <span>●</span>
                     <Typography variant="body1" sx={{ mt: 0.5, mb: 2, fontWeight: 'bold', color: '#323232' }}>{name}</Typography>
                 </Box>

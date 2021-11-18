@@ -20,6 +20,15 @@
     border: 2px solid #aaa !important;
 }
 
+.nav-avatar:hover {
+    border: 2px solid white !important;
+}
+
 .doctorImg {
     width: 90%;
+}
+
+.profilePic {
+    width: 100px;
+    border-radius: 100%;
 }
