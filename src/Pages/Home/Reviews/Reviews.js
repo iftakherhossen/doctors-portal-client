@@ -21,7 +21,7 @@ const Reviews = () => {
                 <Box>
                     <Grid container sx={{display: 'flex', justifyContent: 'center'}}>
                         {reviews.map((review, _id) => (
-                            <Grid item xs={12} sm={10} md={3} key={_id} sx={{ m: 3, bgcolor: '#eee', borderRadius: '50px', boxShadow: 2 }}>
+                            <Grid item xs={12} sm={10} md={5} key={_id} sx={{ m: 3, bgcolor: '#eee', borderRadius: '50px', boxShadow: 2 }}>
                                 <Review
                                     key={review.key}
                                     reviews={review}

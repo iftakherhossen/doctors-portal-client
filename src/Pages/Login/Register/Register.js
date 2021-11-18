@@ -74,7 +74,8 @@ const Register = () => {
                             <Button variant="contained" sx={{ mt: 3 }} type="submit" onClick={handleGoogleSignIn}>Register With Google</Button>
                         </form>}
                         {isLoading && <CircularProgress />}
-                        {user?.email && <Alert severity="success" sx={{mt: 3, width: '50%', mx: 'auto', fontWeight: 'bold'}}>User Created Successfully!</Alert>}
+                        {user?.email && <Alert severity="success" sx={{ mt: 3, width: '50%', mx: 'auto', fontWeight: 'bold' }}>User Created Successfully!</Alert>
+                        }
                         {authError && <Alert severity="error" sx={{ mt: 3, width: '70%', mx: 'auto', fontWeight: 'bold' }}>{authError}</Alert>}
                     </Box>
                 </Grid>

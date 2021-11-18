@@ -48,9 +48,11 @@ const Login = () => {
                         <br />
                         <Button variant="contained" sx={{ mt: 7 }} type="submit">Login</Button>
                         <NavLink to="/register" style={{ textDecoration: 'none' }}><Typography sx={{ mt: 2 }}>New User? Register Now</Typography></NavLink>
-                        <Button variant="contained" sx={{ mt: 3 }} onClick={handleGoogleSignIn}>Login With Google</Button><br/> <br/>
-                        {user?.email && <Alert severity="success" sx={{ mt: 3, width: '50%', mx: 'auto', fontWeight: 'bold' }}>Welcome, User</Alert>}
-                        {authError && <Alert severity="error" sx={{ mt: 3, width: '50%', mx: 'auto', fontWeight: 'bold' }}>{authError}</Alert>}
+                        <Button variant="contained" sx={{ mt: 3 }} onClick={handleGoogleSignIn}>Login With Google</Button><br /> <br />
+                        {user?.email && <Alert severity="success" sx={{ mx: 'auto', fontWeight: 'bold', width: '50%' }}>Welcome, User</Alert>
+                        }
+                        {authError && <Alert severity="error" sx={{ mx: 'auto', fontWeight: 'bold', width: '70%' }}>{authError}</Alert>
+                        }
                         {isLoading && <CircularProgress />}
                     </form>
                 </Grid>

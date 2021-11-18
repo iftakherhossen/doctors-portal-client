@@ -30,6 +30,9 @@ function App() {
             <PrivateRoute path="/dashboard">
               <Dashboard />
             </PrivateRoute>
+            <PrivateRoute path="/dashboard">
+              <Dashboard />
+            </PrivateRoute>
             <Route path="/login">
               <Login />
             </Route>

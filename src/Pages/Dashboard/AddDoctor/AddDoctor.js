@@ -1,4 +1,4 @@
-import { Alert, Button, CircularProgress, Container, Grid, Input, TextField, Typography, ListItemAvatar, Avatar, ListItemText, List, ListItem, IconButton } from '@mui/material';
+import { Alert, Button, CircularProgress, Container, Grid, Input, TextField, Typography, ListItemText, List, ListItem, IconButton } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -116,7 +116,7 @@ const AddDoctor = () => {
                         <List>
                             {doctors.map(doctor => (
                                 <ListItem disablePadding>
-                                    <span style={{ marginRight: 10}}>•</span>
+                                    <span style={{ marginRight: 10, fontWeight: 'bold' }}>•</span>
                                     <ListItemText primary={doctor.name} />
                                     <IconButton edge="end" aria-label="delete">
                                         <DeleteIcon

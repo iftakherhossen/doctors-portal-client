@@ -22,7 +22,7 @@ const Booking = ({ booking, date, setBookingSuccess }) => {
                         {space} SPACES AVAILABLE
                     </Typography>
                     <Typography variant="body1" display="block" gutterBottom sx={{fontWeight: 'bold', mb: 1}}>
-                        Fees ${fees}
+                        Fees $ {fees}
                     </Typography>
                     <Button sx={{bgcolor: '#13c2bc', color: 'black', fontWeight: 'bold' }} onClick={handleBookingOpen} >BOOK APPOINTMENT</Button>
                 </Paper>
@@ -33,7 +33,7 @@ const Booking = ({ booking, date, setBookingSuccess }) => {
                 booking={booking}
                 handleBookingClose={handleBookingClose}
                 setBookingSuccess={setBookingSuccess}
-            ></BookingModal>
+            />
         </div>
     );
 };

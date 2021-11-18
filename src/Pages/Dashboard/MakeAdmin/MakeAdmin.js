@@ -44,11 +44,11 @@ const MakeAdmin = () => {
     }, [])
 
     return (
-        <Box style={{ textAlign: 'center' }}>
+        <Box style={{ textAlign: 'center'}}>
             <Container>
                 <Box>
                     <Grid container sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Grid xs={12} sm={12} md={5}>
+                        <Grid xs={12} sm={12} md={5} sx={{mt: 2}}>
                             <Typography variant="h4" sx={{ pt: 4 }}>Make an Admin</Typography>
                             <Box>
                                 <form onSubmit={handleAdmin}>
@@ -64,7 +64,7 @@ const MakeAdmin = () => {
                                 </form>
                             </Box>
                         </Grid>
-                        <Grid xs={12} sm={12} md={5}>
+                        <Grid xs={12} sm={12} md={5} sx={{ mt: 5 }}>
                             <TableContainer component={Paper}>
                                 <Table sx={{ width: '100%' }} aria-label="simple table">
                                     <TableHead>

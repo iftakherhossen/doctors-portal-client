@@ -24,8 +24,7 @@ const AvailableAppointment = ({ date }) => {
                         booking={booking}
                         date={date}
                         setBookingSuccess={setBookingSuccess}
-                    >
-                    </Booking>)
+                    />)
                 }
             </Grid>
         </div>
