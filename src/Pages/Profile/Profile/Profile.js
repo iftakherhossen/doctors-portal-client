@@ -18,6 +18,9 @@ const Profile = () => {
             .then(data => setAppointment(data));
     }, [user.email])
 
+    console.log(appointment)
+    console.log(appointment._id)
+
     return (
         <Box>
             <Navigation />
@@ -47,18 +50,28 @@ const Profile = () => {
                                                 </TableCell>
                                             </TableRow>
                                         </TableHead>
-                                        <TableBody> 
+                                        <TableBody>
                                             <TableRow>
                                                 <TableCell>
                                                     <Typography variant="h5">Appointments - {appointment.length}</Typography>
-                                                    <Box sx={{width: 180, display: 'flex', justifyContent: 'space-between', mt: 2}}>
-                                                        <AssignmentTurnedInIcon /><Typography variant="h6" sx={{fontWeight: 600}}>5</Typography>
+                                                    <Box sx={{width: 150, display: 'flex', justifyContent:  'space-between', mt: 2}}>
+                                                        <Box sx={{display: 'flex', alignItems: 'center'}}>
+                                                            <AssignmentTurnedInIcon />
+                                                            <Typography variant="h6" sx={{ ml: 1}}>
+                                                                {appointment.status ? 8 : 4}
+                                                            </Typography>
+                                                        </Box>
                                                         &nbsp;
-                                                        <PendingActionsIcon /><Typography variant="h6" sx={{ fontWeight: 600 }}>8</Typography>
+                                                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                                            <PendingActionsIcon />
+                                                            <Typography variant="h6" sx={{ ml: 1 }}>
+                                                                {appointment.status ? 4 : 8}
+                                                            </Typography>
+                                                        </Box>
                                                     </Box>
                                                 </TableCell>
                                                 <TableCell align="right">
-                                                    <Link to="/dashboard" style={{ textDecoration: 'none', color: 'black' }}><Button variant="container" sx={{fontWeight:'bold'}}>Check Appointments</Button></Link>
+                                                    <Link to="/dashboard" style={{ textDecoration: 'none', color: 'black' }}><Button variant="container" sx={{ fontSize: 17, border: '1px solid black'}}>Check Appointments</Button></Link>
                                                 </TableCell>
                                             </TableRow>
                                         </TableBody>

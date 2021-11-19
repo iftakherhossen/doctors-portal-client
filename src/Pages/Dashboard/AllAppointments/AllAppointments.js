@@ -34,7 +34,7 @@ const AllAppointments = () => {
             })
     }
 
-    const handleDone = id => {      
+    const handleDone = id => {
         const url = `https://warm-cove-06931.herokuapp.com/appointments/status/${id}`;
         const status = {
             status: 'Done'
@@ -49,13 +49,13 @@ const AllAppointments = () => {
         })
             .then(res => res.json())
             .then(data => console.log(data));
-        
+
         console.log(id, status);
     }
 
     return (
         <div>
-            <Typography variant="h5" sx={{textAlign: 'center'}}>All Appointments - {allAppointment.length}</Typography>
+            <Typography variant="h5" sx={{ textAlign: 'center' }}>All Appointments - {allAppointment.length}</Typography>
 
             <TableContainer component={Paper} sx={{ width: '100%', my: 2, }}>
                 <Table sx={{ width: '100%', textAlign: 'center' }} aria-label="simple table">
@@ -82,18 +82,18 @@ const AllAppointments = () => {
                                         {row.patientName}
                                     </TableCell>
                                     <TableCell align="center">
-                                        <a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}><AlternateEmailIcon title="Send Email" sx={{fontSize: 20}} /></a> &nbsp;
-                                        <a href={`tel:${row.phone}`} style={{ textDecoration: 'none' }}><CallIcon title="Call Now" sx={{fontSize: 20}} /></a></TableCell>
+                                        <a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}><AlternateEmailIcon title="Send Email" sx={{ fontSize: 20 }} /></a> &nbsp;
+                                        <a href={`tel:${row.phone}`} style={{ textDecoration: 'none' }}><CallIcon title="Call Now" sx={{ fontSize: 20 }} /></a></TableCell>
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">{row.serviceName}</TableCell>
-                                    <TableCell sx={{ fontSize: 17, fontWeight: 'bold'  }} align="center">{row.time}</TableCell>
-                                    <TableCell sx={{ fontSize: 17, fontWeight: 'bold'  }} align="center">{row.date}</TableCell>
-                                    <TableCell sx={{ fontSize: 17, fontWeight: 'bold'  }} align="center">{row.payment ? 'Paid' : 'Pending'}</TableCell>
+                                    <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">{row.time}</TableCell>
+                                    <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">{row.date}</TableCell>
+                                    <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">{row.payment ? 'Paid' : 'Pending'}</TableCell>
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }}>
                                         {row.status ? 'Done' : 'Pending'}
                                     </TableCell>
                                     <TableCell sx={{ fontSize: 17, color: 'red', display: 'flex' }}>
                                         <IconButton aria-label="done" size="large" onClick={() => handleDone(row._id)}>
-                                            <CheckCircleIcon sx={{color: 'green'}} />
+                                            <CheckCircleIcon sx={{ color: 'green' }} />
                                         </IconButton>
                                         <IconButton aria-label="delete" size="large" onClick={() => handleDelete(row._id)}>
                                             <DeleteIcon
