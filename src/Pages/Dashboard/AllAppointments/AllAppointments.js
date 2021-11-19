@@ -3,6 +3,7 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 import DeleteIcon from '@mui/icons-material/Delete';
 import CallIcon from '@mui/icons-material/Call';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const AllAppointments = () => {
     const [allAppointment, setAllAppointment] = useState([]);
@@ -33,6 +34,25 @@ const AllAppointments = () => {
             })
     }
 
+    const handleDone = id => {      
+        const url = `https://warm-cove-06931.herokuapp.com/appointments/status/${id}`;
+        const status = {
+            status: 'Done'
+        };
+
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(status)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data));
+        
+        console.log(id, status);
+    }
+
     return (
         <div>
             <Typography variant="h5" sx={{textAlign: 'center'}}>All Appointments - {allAppointment.length}</Typography>
@@ -61,17 +81,23 @@ const AllAppointments = () => {
                                     <TableCell component="th" scope="row" sx={{ fontSize: 17, fontWeight: 'bold' }}>
                                         {row.patientName}
                                     </TableCell>
-                                    <TableCell sx={{ fontSize: 12 }} align="center"><a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}><AlternateEmailIcon title="Send Email" /></a> &nbsp; <a href={`tel:${row.phone}`} style={{ textDecoration: 'none' }}><CallIcon title="Call Now" /></a></TableCell>
+                                    <TableCell align="center">
+                                        <a href={`mailto:${row.email}`} style={{ textDecoration: 'none' }}><AlternateEmailIcon title="Send Email" sx={{fontSize: 20}} /></a> &nbsp;
+                                        <a href={`tel:${row.phone}`} style={{ textDecoration: 'none' }}><CallIcon title="Call Now" sx={{fontSize: 20}} /></a></TableCell>
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">{row.serviceName}</TableCell>
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold'  }} align="center">{row.time}</TableCell>
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold'  }} align="center">{row.date}</TableCell>
                                     <TableCell sx={{ fontSize: 17, fontWeight: 'bold'  }} align="center">{row.payment ? 'Paid' : 'Pending'}</TableCell>
-                                    <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }} align="center">{row.status ? 'Done' : 'Pending'}</TableCell>
-                                    <TableCell sx={{ fontSize: 17, color: 'red' }} align="right">
-                                        <IconButton aria-label="delete" size="large">
+                                    <TableCell sx={{ fontSize: 17, fontWeight: 'bold' }}>
+                                        {row.status ? 'Done' : 'Pending'}
+                                    </TableCell>
+                                    <TableCell sx={{ fontSize: 17, color: 'red', display: 'flex' }}>
+                                        <IconButton aria-label="done" size="large" onClick={() => handleDone(row._id)}>
+                                            <CheckCircleIcon sx={{color: 'green'}} />
+                                        </IconButton>
+                                        <IconButton aria-label="delete" size="large" onClick={() => handleDelete(row._id)}>
                                             <DeleteIcon
                                                 fontSize="inherit"
-                                                onClick={() => handleDelete(row._id)}
                                                 sx={{ color: 'red' }} />
                                         </IconButton>
                                     </TableCell>

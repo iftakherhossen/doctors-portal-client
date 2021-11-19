@@ -52,9 +52,9 @@ const Profile = () => {
                                                 <TableCell>
                                                     <Typography variant="h5">Appointments - {appointment.length}</Typography>
                                                     <Box sx={{width: 180, display: 'flex', justifyContent: 'space-between', mt: 2}}>
-                                                        <AssignmentTurnedInIcon /><Typography variant="body1" sx={{fontWeight: 600}}>5</Typography>
+                                                        <AssignmentTurnedInIcon /><Typography variant="h6" sx={{fontWeight: 600}}>5</Typography>
                                                         &nbsp;
-                                                        <PendingActionsIcon /><Typography variant="body1" sx={{ fontWeight: 600 }}>8</Typography>
+                                                        <PendingActionsIcon /><Typography variant="h6" sx={{ fontWeight: 600 }}>8</Typography>
                                                     </Box>
                                                 </TableCell>
                                                 <TableCell align="right">
