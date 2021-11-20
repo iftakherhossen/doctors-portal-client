@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { Button, Typography } from '@mui/material';
+import {Link} from 'react-router-dom'
 
 const appointmentBg = {
     background: 'url("https://i.ibb.co/Prj41tV/appointment-bg.png")',
@@ -30,7 +31,7 @@ const AppointmentBanner = () => {
                         <Typography variant="body-2" sx={{ mb: 3, color: 'white', display: 'block' }}>
                             There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour.
                         </Typography>
-                        <Button variant="contained" sx={{mt:2, backgroundColor: '#15D1CD' }}>Learn More</Button>
+                        <Link to="/appointment" style={{textDecoration: 'none'}}><Button variant="contained" sx={{mt:2, backgroundColor: '#15D1CD' }}>Learn More</Button></Link>
                     </Box>
                 </Grid>
             </Grid>

@@ -14,10 +14,10 @@ const AppointmentHeader = ({date, setDate}) => {
         <div style={{padding: '80px 0 0 0'}}>
             <Container>
                 <Grid container spacing={2} style={appointmentBg}>
-                    <Grid xs={12} md={6} sx={{ pr: 10}}>
+                    <Grid item xs={12} md={6} sx={{ pr: 10}}>
                         <Calender date={date} setDate={setDate}></Calender>
                     </Grid>
-                    <Grid xs={12} md={6}>
+                    <Grid item xs={12} md={6}>
                         <img src="https://i.ibb.co/xsXWckW/chair.png" alt="chair" style={{ width: '100%' }} />
                     </Grid>
                 </Grid>

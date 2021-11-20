@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Grid, Typography, TableContainer, Table, TableBody, TableRow, TableCell,Button,  Paper, TableHead,Tooltip, IconButton } from '@mui/material';
+import { Container, Grid, Typography, TableContainer, Table, TableBody, TableRow, TableCell, Button, Paper, TableHead, Tooltip, IconButton } from '@mui/material';
 import useAuth from '../../../hooks/useAuth';
 import { Box } from '@mui/system';
 import Navigation from '../../Shared/Navigation/Navigation';
 import EditIcon from '@mui/icons-material/Edit';
 import { Link } from 'react-router-dom';
-import AssignmentTurnedInIcon from '@mui/icons-material/AssignmentTurnedIn';
-import PendingActionsIcon from '@mui/icons-material/PendingActions';
 
 const Profile = () => {
     const { user } = useAuth();
@@ -17,9 +15,6 @@ const Profile = () => {
             .then(res => res.json())
             .then(data => setAppointment(data));
     }, [user.email])
-
-    console.log(appointment)
-    console.log(appointment._id)
 
     return (
         <Box>
@@ -37,7 +32,7 @@ const Profile = () => {
                                                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                             >
                                                 <TableCell>
-                                                    <img src={user.photoURL} alt="Avatar" className="profilePic" />
+                                                    <img src={user.photoURL} alt="Avatar" className="profilePic" /><br />
                                                 </TableCell>
                                                 <TableCell align="right">
                                                     <Typography variant="h5">{user.displayName}</Typography>
@@ -54,24 +49,9 @@ const Profile = () => {
                                             <TableRow>
                                                 <TableCell>
                                                     <Typography variant="h5">Appointments - {appointment.length}</Typography>
-                                                    <Box sx={{width: 150, display: 'flex', justifyContent:  'space-between', mt: 2}}>
-                                                        <Box sx={{display: 'flex', alignItems: 'center'}}>
-                                                            <AssignmentTurnedInIcon />
-                                                            <Typography variant="h6" sx={{ ml: 1}}>
-                                                                {appointment.status ? 8 : 4}
-                                                            </Typography>
-                                                        </Box>
-                                                        &nbsp;
-                                                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                                                            <PendingActionsIcon />
-                                                            <Typography variant="h6" sx={{ ml: 1 }}>
-                                                                {appointment.status ? 4 : 8}
-                                                            </Typography>
-                                                        </Box>
-                                                    </Box>
                                                 </TableCell>
                                                 <TableCell align="right">
-                                                    <Link to="/dashboard" style={{ textDecoration: 'none', color: 'black' }}><Button variant="container" sx={{ fontSize: 17, border: '1px solid black'}}>Check Appointments</Button></Link>
+                                                    <Link to="/dashboard" style={{ textDecoration: 'none', color: 'black' }}><Button variant="container" sx={{ fontSize: 15, border: '1px solid black' }}>Check Appointments</Button></Link>
                                                 </TableCell>
                                             </TableRow>
                                         </TableBody>

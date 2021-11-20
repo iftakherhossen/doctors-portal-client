@@ -118,10 +118,8 @@ const AddDoctor = () => {
                                 <ListItem disablePadding>
                                     <span style={{ marginRight: 10, fontWeight: 'bold' }}>•</span>
                                     <ListItemText primary={doctor.name} />
-                                    <IconButton edge="end" aria-label="delete">
-                                        <DeleteIcon
-                                            onClick={() => handleDelete(doctor._id)}
-                                            sx={{ color: 'red' }} />
+                                    <IconButton edge="end" aria-label="delete" onClick={() => handleDelete(doctor._id)} sx={{ color: 'red' }}>
+                                        <DeleteIcon />
                                     </IconButton>
                                 </ListItem>
                             ))}

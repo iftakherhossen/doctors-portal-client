@@ -18,6 +18,8 @@ const Payment = () => {
             .then(data => setDetails(data));
     }, [appointmentId]);
 
+    console.log(details)
+
     return (
         <Box>
             <Container>

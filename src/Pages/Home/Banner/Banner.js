@@ -47,7 +47,7 @@ const Banner = () => {
                     </Grid>
                 </Grid>
                 <Grid container spacing={2} sx={{ px: 15, mt: -10 }}>
-                    <Grid xs={12} md={6} lg={4} sx={{ px: 1 }}>
+                    <Grid item xs={12} md={6} lg={4} sx={{ px: 1 }}>
                         <Card sx={{ boxShadow: 0, backgroundColor: '#13c2bc', px: 2 }}>
                             <CardContent>
                                 <Box sx={{ textAlign: 'center' }}>
@@ -62,7 +62,7 @@ const Banner = () => {
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid xs={12} md={6} lg={4} sx={{ px: 1 }}>
+                    <Grid item xs={12} md={6} lg={4} sx={{ px: 1 }}>
                         <Card sx={{ boxShadow: 0, backgroundColor: '#374d61', px: 2 }}>
                             <CardContent>
                                 <Box sx={{ textAlign: 'center' }}>
@@ -77,7 +77,7 @@ const Banner = () => {
                             </CardContent>
                         </Card>
                     </Grid>
-                    <Grid xs={12} md={6} lg={4} sx={{ px: 1 }}>
+                    <Grid item xs={12} md={6} lg={4} sx={{ px: 1 }}>
                         <Card sx={{ boxShadow: 0, backgroundColor: '#13c2bc', px: 2 }}>
                             <CardContent>
                                 <Box sx={{textAlign: 'center'}}>
